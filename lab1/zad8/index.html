@@ -9,6 +9,11 @@
   </head>
   <body>
     <div class="container">
+      <div id="blue" class="color-selection-indicator"></div>
+      <div id="red" class="color-selection-indicator"></div>
+      <div id="green" class="color-selection-indicator"></div>
+      <div id="orange" class="color-selection-indicator"></div>
+      <div id="grey" class="color-selection-indicator"></div>
       <div class="card">
         <div class="preview">
           <div class="preview__wrapper">
@@ -59,9 +64,74 @@
           </div>
           <div class="product__colors">
             <span class="label">Color</span>
+            <div class="product__color-selectors">
+              <a
+                href="#blue"
+                class="product__color-selector"
+                data-color="blue"
+              ></a>
+              <a
+                href="#red"
+                class="product__color-selector"
+                data-color="red"
+              ></a>
+              <a
+                href="#green"
+                class="product__color-selector"
+                data-color="green"
+              ></a>
+              <a
+                href="#orange"
+                class="product__color-selector"
+                data-color="orange"
+              ></a>
+              <a
+                href="#grey"
+                class="product__color-selector"
+                data-color="grey"
+              ></a>
+            </div>
           </div>
           <div class="product__sizes">
             <span class="label">Size</span>
+            <div class="product__size-selectors">
+              <input
+                checked
+                class="product__size-selector"
+                type="radio"
+                name="size"
+                data-label="7"
+                value="7"
+              />
+              <input
+                class="product__size-selector"
+                type="radio"
+                name="size"
+                value="8"
+                data-label="8"
+              />
+              <input
+                class="product__size-selector"
+                type="radio"
+                name="size"
+                value="9"
+                data-label="9"
+              />
+              <input
+                class="product__size-selector"
+                type="radio"
+                name="size"
+                value="10"
+                data-label="10"
+              />
+              <input
+                class="product__size-selector"
+                type="radio"
+                name="size"
+                value="11"
+                data-label="11"
+              />
+            </div>
           </div>
           <div class="product__checkout">
             <button class="product__cart-button">
