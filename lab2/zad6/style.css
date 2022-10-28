@@ -1,3 +1,7 @@
+:root {
+  --color-primary-500: #6ec0b0;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -19,7 +23,15 @@ body {
 }
 
 .call__recipient {
-  aspect-ratio: 0.675;
+  aspect-ratio: 1;
+  z-index: 10;
+  position: absolute;
+  max-width: 150px;
+  border-radius: 16px;
+  overflow: hidden;
+  top: 16px;
+  left: 16px;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
 }
 
 .call__recipient img {
@@ -35,17 +47,6 @@ body {
   aspect-ratio: 0.675;
   margin: 0 auto;
   display: block;
-}
-
-.call__recipient {
-  z-index: 10;
-  position: absolute;
-  max-width: 100px;
-  border-radius: 16px;
-  overflow: hidden;
-  top: 16px;
-  left: 16px;
-  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
 }
 
 .call__caller {
@@ -69,16 +70,22 @@ body {
   left: 16px;
 }
 
+.call__dots-icon {
+  width: 12px;
+  height: 12px;
+  margin-bottom: 8px;
+}
+
 .call__dots > span {
   width: 12px;
   height: 12px;
   display: block;
-  background-color: #6ec0b0;
+  background-color: var(--color-primary-500);
   border-radius: 9999px;
   cursor: pointer;
 }
 
-.call__dots > span:first-child {
+.call__dots > span:first-of-type {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
@@ -99,7 +106,7 @@ body {
   display: grid;
   place-items: center;
   border-radius: 9999px;
-  color: #6ec0b0;
+  color: var(--color-primary-500);
   transition: all 0.2s ease-in-out;
   filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
 }
@@ -127,5 +134,6 @@ body {
 @media screen and (min-width: 600px) {
   .call__recipient {
     max-width: 200px;
+    aspect-ratio: 0.675;
   }
 }
