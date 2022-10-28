@@ -1,0 +1,161 @@
+:root {
+  --color-blue-500: #057aec;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.wrapper {
+  position: relative;
+  padding: 64px 16px;
+}
+
+.container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.wrapper::before {
+  position: absolute;
+  content: "";
+  inset: 0;
+  background-color: var(--color-blue-500);
+  z-index: 0;
+  clip-path: polygon(0 0, 100% 0%, 100% 60%, 0% 100%);
+}
+
+.intro,
+.form {
+  position: relative;
+  z-index: 10;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translate3d(-100vw, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  animation: slideInFromLeft 0.4s;
+}
+
+.intro__title {
+  margin: 0;
+  font-size: 32px;
+}
+
+.intro__desc {
+  margin: 0;
+  line-height: 1.5;
+  font-size: 18px;
+  font-weight: 100;
+}
+
+.intro__button {
+  all: unset;
+  cursor: pointer;
+  padding: 16px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  text-align: center;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+  align-self: start;
+}
+
+.intro__button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translate3d(100vw, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.form {
+  background-color: white;
+  padding: 24px;
+  border-radius: 12px;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation-name: slideInFromRight;
+  animation-duration: 0.4s;
+  animation-delay: 0.2s;
+  animation-fill-mode: forwards;
+  transform: translate3d(100vw, 0, 0);
+}
+
+.form__title {
+  font-size: 32px;
+  font-weight: 100;
+  margin-bottom: 16px;
+}
+
+.form__input {
+  all: unset;
+  padding: 12px 4px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.form__spacer {
+  flex: 1;
+}
+
+.form__submit {
+  all: unset;
+  cursor: pointer;
+  align-self: start;
+  padding: 12px 32px;
+  color: white;
+  background-color: var(--color-blue-500);
+  border-radius: 8px;
+  margin-top: 16px;
+  transition: all 0.1s ease-in;
+}
+
+.form__submit:hover {
+  filter: brightness(1.1);
+}
+
+@media screen and (min-width: 800px) {
+  .wrapper {
+    padding: 128px 16px;
+  }
+
+  .container {
+    flex-direction: row;
+    gap: 64px;
+  }
+
+  .intro {
+    flex: 3;
+    gap: 32px;
+  }
+
+  .form {
+    flex: 2;
+  }
+}
