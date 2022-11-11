@@ -132,3 +132,25 @@ body {
   height: 100px;
   object-fit: contain;
 }
+
+.random {
+  all: unset;
+  display: flex;
+  background-color: #5f7e9c;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: white;
+  padding: 16px;
+  border-radius: 16px;
+  transition: opacity 0.2s ease-in;
+}
+
+.random:hover {
+  opacity: 0.8;
+}
+
+.random svg {
+  width: 20px;
+  height: 20px;
+}
