@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.slider {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 30vw;
+}
+
+.slider__controls {
+  display: flex;
+  gap: 8px;
+}
+
+.slider__img {
+  --border-color: red;
+  border: 10px solid var(--border-color);
+}
+
+.slider__control {
+  padding: 8px;
+}
