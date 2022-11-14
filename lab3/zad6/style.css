@@ -1,0 +1,132 @@
+:root {
+  --color-primary-500: #007f00;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f8fbfe;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 16px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.contact {
+  background: white;
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 8px;
+}
+
+.contact__details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contact__name {
+  font-weight: bold;
+}
+
+.contact__delete {
+  all: unset;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background-color: var(--color-primary-500);
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+}
+
+.contact__delete img {
+  pointer-events: none;
+}
+
+.contact__delete:hover {
+  opacity: 0.8;
+}
+
+.form {
+  background: white;
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 8px;
+}
+
+.form__control {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.form__label {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+}
+
+.form__input {
+  padding: 12px 8px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.form__error {
+  color: red;
+  font-size: 14px;
+  margin-top: 4px;
+  display: none;
+}
+
+.form__control[data-error='true'] .form__input {
+  border-color: red;
+}
+
+.form__control[data-error='true'] .form__error {
+  display: block;
+}
+
+.form__submit {
+  all: unset;
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+  background-color: var(--color-primary-500);
+  color: white;
+  border-radius: 8px;
+  padding: 12px 8px;
+}
+
+@media screen and (min-width: 800px) {
+  .form {
+    flex-direction: row;
+  }
+
+  .contact {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

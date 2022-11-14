@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  gap: 16px;
+}
+
+.boxes {
+  border: 1px solid black;
+  font-size: 20px;
+  text-align: center;
+  width: 200px;
+  height: 200px;
+}
+
+.boxes div {
+  padding: 16px;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.boxes div[data-disabled='true'] {
+  background-color: gray;
+}
+
+.one {
+  height: 100%;
+  background-color: lavender;
+}
+
+.two {
+  background-color: red;
+  height: 80%;
+}
+
+.three {
+  height: 80%;
+  background-color: yellow;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

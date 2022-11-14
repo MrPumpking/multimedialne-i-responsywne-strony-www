@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zadanie 6</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="contact-list js-list-container"></div>
+      <form class="form js-form">
+        <div class="form__control js-form-control-name">
+          <label for="name" class="form__label">Imię i nazwisko</label>
+          <input id="name" name="name" type="text" class="form__input" />
+          <span class="form__error">Podaj poprawne imię i nazwisko</span>
+        </div>
+        <div class="form__control js-form-control-phone">
+          <label for="phone" class="form__label">Telefon</label>
+          <input id="phone" name="phone" type="text" class="form__input" />
+          <span class="form__error">Podaj poprawny numer telefonu</span>
+        </div>
+        <input type="submit" value="Dodaj" class="form__submit" />
+      </form>
+    </div>
+  </body>
+</html>
