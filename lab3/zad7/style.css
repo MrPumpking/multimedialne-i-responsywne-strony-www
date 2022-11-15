@@ -1,0 +1,115 @@
+:root {
+  --color-primary-500: #28a39f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 16px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 400px;
+}
+
+.form__control {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form__label {
+  font-size: 18px;
+}
+
+.form__error {
+  color: red;
+  font-size: 14px;
+  display: none;
+}
+
+.form__control[data-invalid='true'] .form__error {
+  display: block;
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 8px;
+  padding-right: 38px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: var(--color-primary-500);
+}
+
+.password-btn {
+  all: unset;
+  width: 40px;
+  display: block;
+  background: url('./img/show.svg') no-repeat center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.password-btn[data-visible='true'] {
+  background: url('./img/hide.svg') no-repeat center;
+}
+
+.requirements {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.requirements__title {
+  font-size: 18px;
+}
+
+.requirements__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rule {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rule__icon {
+  width: 24px;
+  height: 24px;
+  background: #ccc url('./img/xmark.svg') no-repeat center;
+  display: grid;
+  place-items: center;
+  border-radius: 9999px;
+}
+
+.rule[data-valid='true'] .rule__icon {
+  background: var(--color-primary-500) url('./img/check.svg') no-repeat center;
+}

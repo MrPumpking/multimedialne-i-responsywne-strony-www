@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <form class="form">
+        <div class="form__control">
+          <label for="new-password" class="form__label">New password</label>
+          <div class="input-group">
+            <input id="new-password" type="password" class="js-password" />
+            <button
+              tabindex="-1"
+              type="button"
+              class="input-group__right password-btn js-show-password"
+            ></button>
+          </div>
+        </div>
+        <div class="form__control js-confirm-control">
+          <label for="confirm-password" class="form__label">
+            Repeat new password
+          </label>
+          <div class="input-group">
+            <input id="confirm-password" type="password" class="js-password" />
+            <button
+              tabindex="-1"
+              type="button"
+              class="input-group__right password-btn js-show-password"
+            ></button>
+          </div>
+          <span class="form__error">Podane hasła się nie zgadzają</span>
+        </div>
+      </form>
+      <div class="requirements">
+        <span class="requirements__title">Password requirements</span>
+        <div class="requirements__list js-rule-list"></div>
+      </div>
+    </div>
+  </body>
+</html>
