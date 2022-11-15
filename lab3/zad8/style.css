@@ -10,6 +10,17 @@ body {
   width: 800px;
   height: 400px;
   border: 1px solid black;
+  position: relative;
+}
+
+.area__text {
+  z-index: 0;
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+  pointer-events: none;
 }
 
 .ball {
@@ -21,6 +32,8 @@ body {
   border-radius: 9999px;
   transition: transform 0.2s ease-in;
   transform: translate3d(var(--pos-x), var(--pos-y), 0);
+  position: relative;
+  z-index: 10;
 }
 
 .tooltip {
