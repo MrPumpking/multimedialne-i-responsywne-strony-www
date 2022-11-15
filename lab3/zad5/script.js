@@ -1,99 +1,123 @@
-let score = 0;
-let stopPropagation = false;
-let direction = 'bubble';
+const getInitialState = () => ({
+  count: 0,
+  propagate: true,
+  capture: false,
+});
+
+const state = getInitialState();
+
+const countDisplay = document.querySelector('.js-count-display');
+const logList = document.querySelector('.js-logs');
 
 const box1 = document.querySelector('.js-box-1');
 const box2 = document.querySelector('.js-box-2');
 const box3 = document.querySelector('.js-box-3');
-const boxes = [box1, box2, box3];
-const counter = document.querySelector('.js-counter');
-const logs = document.querySelector('.js-logs');
-const stopPropagationButton = document.querySelector('.js-stop-propagation');
-const resetButton = document.querySelector('.js-reset');
-const changeDirection = document.querySelector('.js-change-direction');
 
-const setScore = (newScore) => {
-  score = newScore;
-  counter.innerHTML = score;
+const resetBtn = document.querySelector('.js-reset');
+const changeDirectionBtn = document.querySelector('.js-change-direction');
+const changePropagationBtn = document.querySelector('.js-change-propagation');
+
+const setCount = (value) => {
+  state.count = value;
+  countDisplay.innerHTML = state.count;
 };
 
-const logBoxClick = (value, color) => {
-  const li = document.createElement('li');
-  li.innerHTML = `Nacisnąłeś ${color} o wartości ${value}`;
-  logs.appendChild(li);
-};
-
-const onBoxClick = (event) => {
-  const clickedBox = event.currentTarget;
-  const boxValue = Number(clickedBox.dataset['value']);
-  const boxColor = clickedBox.dataset['color'];
-
-  if (stopPropagation) {
-    event.stopPropagation();
-  }
-
-  const newScore = score + boxValue;
-  logBoxClick(boxValue, boxColor);
-  setScore(newScore);
-
-  if (newScore > 30) {
-    box2.dataset['disabled'] = true;
-    box2.removeEventListener('click', onBoxClick);
-  }
-
-  if (newScore > 50) {
-    box3.dataset['disabled'] = true;
-    box3.removeEventListener('click', onBoxClick);
-  }
-};
-
-const setStopPropagationEnabled = (isEnabled) => {
-  stopPropagation = isEnabled;
-  stopPropagationButton.innerHTML = `${
-    stopPropagation ? 'Start' : 'Stop'
+const setPropagationEnabled = (isEnabled) => {
+  state.propagate = isEnabled;
+  changePropagationBtn.innerHTML = `${
+    isEnabled ? 'Stop' : 'Start'
   } propagation`;
 };
 
-stopPropagationButton.addEventListener('click', () => {
-  setStopPropagationEnabled(!stopPropagation);
-});
-
-const registerBoxListeners = (direction) => {
-  boxes.forEach((box) => {
-    box.removeEventListener('click', onBoxClick, {
-      capture: direction === 'bubble',
-    });
-
-    if (box.dataset['disabled'] !== 'true') {
-      box.addEventListener('click', onBoxClick, {
-        capture: direction === 'capture',
-      });
-    }
-  });
+const togglePropagation = () => {
+  setPropagationEnabled(!state.propagate);
 };
 
-registerBoxListeners('bubble');
+changePropagationBtn.addEventListener('click', togglePropagation);
 
-const setDirection = (dir) => {
-  changeDirection.innerHTML = `Change direction to ${direction}`;
-  direction = dir;
-  registerBoxListeners(direction);
+const logBoxClick = (value, label) => {
+  logList.insertAdjacentHTML(
+    'beforeend',
+    `<li>Nacisnąłeś ${label} o wartości ${value}</li>`
+  );
 };
 
-changeDirection.addEventListener('click', () => {
-  setDirection(direction === 'bubble' ? 'capture' : 'bubble');
-});
-
-const clearLogs = () => {
-  logs.innerHTML = '';
+const setBoxDisabled = (box, isDisabled) => {
+  box.dataset['disabled'] = isDisabled;
 };
 
-resetButton.addEventListener('click', () => {
-  setStopPropagationEnabled(false);
-  setDirection('bubble');
-  setScore(0);
-  clearLogs();
+const onBoxClick = (event, value, label) => {
+  if (!state.propagate) {
+    event.stopPropagation();
+  }
 
-  box2.dataset['disabled'] = false;
-  box3.dataset['disabled'] = false;
-});
+  setCount(state.count + value);
+  logBoxClick(value, label);
+};
+
+const onBox1Click = (event) => {
+  onBoxClick(event, 1, 'niebieski');
+};
+
+const onBox2Click = (event) => {
+  onBoxClick(event, 2, 'czerwony');
+
+  if (state.count > 30) {
+    setBoxDisabled(box2, true);
+    box2.removeEventListener('click', onBox2Click, { capture: state.capture });
+  }
+};
+
+const onBox3Click = (event) => {
+  onBoxClick(event, 3, 'żółty');
+
+  if (state.count > 50) {
+    setBoxDisabled(box3, true);
+    box3.removeEventListener('click', onBox3Click, { capture: state.capture });
+  }
+};
+
+const unregisterEventListeners = (capture = false) => {
+  box1.removeEventListener('click', onBox1Click, { capture });
+  box2.removeEventListener('click', onBox2Click, { capture });
+  box3.removeEventListener('click', onBox3Click, { capture });
+};
+
+const registerEventListeners = (capture = false) => {
+  box1.addEventListener('click', onBox1Click, { capture });
+  box2.addEventListener('click', onBox2Click, { capture });
+  box3.addEventListener('click', onBox3Click, { capture });
+};
+
+registerEventListeners();
+
+const setCaptureEnabled = (isEnabled) => {
+  state.capture = isEnabled;
+  changeDirectionBtn.innerHTML = `Change direction to ${
+    isEnabled ? 'bubble' : 'capture'
+  }`;
+
+  unregisterEventListeners(!state.capture);
+  registerEventListeners(state.capture);
+};
+
+const toggleCapture = () => {
+  setCaptureEnabled(!state.capture);
+};
+
+changeDirectionBtn.addEventListener('click', toggleCapture);
+
+const clearLogList = () => {
+  logList.innerHTML = '';
+};
+
+const reset = () => {
+  setCount(0);
+  setPropagationEnabled(true);
+  setCaptureEnabled(false);
+  clearLogList();
+  setBoxDisabled(box2, false);
+  setBoxDisabled(box3, false);
+};
+
+resetBtn.addEventListener('click', reset);

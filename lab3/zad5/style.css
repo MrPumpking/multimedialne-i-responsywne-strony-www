@@ -18,7 +18,6 @@
 .boxes div {
   padding: 16px;
   cursor: pointer;
-  pointer-events: all;
 }
 
 .boxes div[data-disabled='true'] {
