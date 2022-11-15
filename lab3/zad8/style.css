@@ -47,4 +47,5 @@ body {
   left: calc(var(--pos-x) - var(--width) / 2);
   top: calc(var(--pos-y) - var(--height) / 2);
   cursor: default;
+  font-family: sans-serif;
 }

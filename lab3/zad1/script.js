@@ -42,10 +42,18 @@ console.groupEnd();
 
 console.group('map');
 const uppercased = [
-  ...tab.map((word) => `${word.toLocaleUpperCase()}. Długość: ${word.length}`),
+  ...tab.map((word, i) => {
+    const el = `${word.toLocaleUpperCase()}. Długość: ${word.length}`;
+    console.log(el);
+
+    if (i === tab.length - 1) {
+      console.log('PAW');
+    }
+
+    return el;
+  }),
   'PAW',
 ];
-console.table(uppercased);
 console.groupEnd();
 console.groupEnd();
 

@@ -62,6 +62,8 @@ const onSubmit = (event) => {
 
   if (validate(name, phone)) {
     insertContact(name, phone);
+    event.target.reset();
+    nameFormControl.querySelector('input').focus();
   }
 };
 

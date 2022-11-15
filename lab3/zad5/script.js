@@ -53,6 +53,7 @@ const onBoxClick = (event, value, label) => {
 
   setCount(state.count + value);
   logBoxClick(value, label);
+  checkBoxState();
 };
 
 const onBox1Click = (event) => {
@@ -61,15 +62,17 @@ const onBox1Click = (event) => {
 
 const onBox2Click = (event) => {
   onBoxClick(event, 2, 'czerwony');
-
-  if (state.count > 30) {
-    setBoxDisabled(box2, true);
-    box2.removeEventListener('click', onBox2Click, { capture: state.capture });
-  }
 };
 
 const onBox3Click = (event) => {
   onBoxClick(event, 3, 'żółty');
+};
+
+const checkBoxState = () => {
+  if (state.count > 30) {
+    setBoxDisabled(box2, true);
+    box2.removeEventListener('click', onBox2Click, { capture: state.capture });
+  }
 
   if (state.count > 50) {
     setBoxDisabled(box3, true);
