@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.area {
+  width: 800px;
+  height: 400px;
+  border: 1px solid black;
+}
+
+.ball {
+  --pos-x: 0;
+  --pos-y: 0;
+  width: 48px;
+  height: 48px;
+  background-color: red;
+  border-radius: 9999px;
+  transition: transform 0.2s ease-in;
+  transform: translate3d(var(--pos-x), var(--pos-y), 0);
+}
+
+.tooltip {
+  --width: 184px;
+  --height: 34px;
+  color: white;
+  padding: 8px;
+  border-radius: 8px;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  left: calc(var(--pos-x) - var(--width) / 2);
+  top: calc(var(--pos-y) - var(--height) / 2);
+  cursor: default;
+}
