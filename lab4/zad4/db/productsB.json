@@ -1,0 +1,11 @@
+{
+  "products": {
+    "cars": ["Opel", "Peugeot", "Suzuki"],
+    "sweets": ["Candy", "Gummy bears"],
+    "beverages": ["Sprite", "Mirinda", "Ice tea"],
+    "mobile": ["Xiaomi", "Huawei"],
+    "electronics": ["Surface Book", "Apple Watch", "Mi Band"],
+    "clothes": ["Socks"],
+    "furniture": ["Lamp", "Sofa"]
+  }
+}

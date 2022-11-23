@@ -1,0 +1,12 @@
+{
+  "products": {
+    "cars": ["BMW", "Audi", "Mercedes"],
+    "sweets": ["Chocolate"],
+    "scooters": ["BMW C400X"],
+    "beverages": ["Pepsi", "Fanta"],
+    "mobile": ["iPhone", "Samsung"],
+    "electronics": ["MacBook", "iPad"],
+    "clothes": ["T-shirt", "Jeans"],
+    "furniture": ["Desk", "Chair"]
+  }
+}
