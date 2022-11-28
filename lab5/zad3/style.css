@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 16px;
+}
+
+.sections {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: sans-serif;
+  gap: 16px;
+}
+
+.section {
+  max-width: 800px;
+  width: 100%;
+  background-color: rgb(251, 191, 36);
+  padding: 16px;
+  line-height: 1.5;
+  font-size: 20px;
+}
+
+.section img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
