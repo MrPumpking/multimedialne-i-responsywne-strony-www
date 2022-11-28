@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zadanie 2</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <div class="images">
+      <div class="image">
+        <img data-lazy="./img/img.jpg" />
+      </div>
+      <div class="image">
+        <img data-lazy="./img/img.jpg" />
+      </div>
+      <div class="image">
+        <img data-lazy="./img/img.jpg" />
+      </div>
+      <div class="image">
+        <img data-lazy="./img/img.jpg" />
+      </div>
+      <div class="image">
+        <img data-lazy="./img/img.jpg" />
+      </div>
+      <div class="image">
+        <img data-lazy="./img/img.jpg" />
+      </div>
+      <div class="image">
+        <img data-lazy="./img/img.jpg" />
+      </div>
+      <div class="image">
+        <img data-lazy="./img/img.jpg" />
+      </div>
+      <div class="image">
+        <img data-lazy="./img/img.jpg" />
+      </div>
+      <div class="image">
+        <img data-lazy="./img/img.jpg" />
+      </div>
+    </div>
+    <div class="controls">
+      <div class="control">
+        <label for="margin-top" class="control__label">rootMargin top:</label>
+        <input
+          id="margin-top"
+          type="range"
+          step="1"
+          class="js-slider"
+          data-key="top"
+          min="-500"
+          max="500"
+        />
+      </div>
+      <div class="control">
+        <label for="margin-right" class="control__label">
+          rootMargin right:
+        </label>
+        <input
+          id="margin-right"
+          type="range"
+          step="1"
+          class="js-slider"
+          data-key="right"
+          min="-500"
+          max="500"
+        />
+      </div>
+      <div class="control">
+        <label for="margin-bottom" class="control__label">
+          rootMargin bottom:
+        </label>
+        <input
+          id="margin-bottom"
+          type="range"
+          step="1"
+          class="js-slider"
+          data-key="bottom"
+          min="-500"
+          max="500"
+        />
+      </div>
+      <div class="control">
+        <label for="margin-left" class="control__label">
+          rootMargin left:
+        </label>
+        <input
+          id="margin-left"
+          type="range"
+          step="1"
+          class="js-slider"
+          data-key="left"
+          min="-500"
+          max="500"
+        />
+      </div>
+      <div class="control">
+        <label for="threshold" class="control__label">threshold:</label>
+        <input
+          id="threshold"
+          type="range"
+          step="0.01"
+          min="0"
+          max="1"
+          class="js-slider"
+          data-key="threshold"
+        />
+      </div>
+      <div class="control">
+        <span class="control__label">rootMargin</span>
+        <span class="js-margin-text">0px 0px 0px 0px</span>
+      </div>
+      <div class="control">
+        <label for="" class="control__label">threshold:</label>
+        <span class="js-threshold-text">0</span>
+      </div>
+    </div>
+  </body>
+</html>
