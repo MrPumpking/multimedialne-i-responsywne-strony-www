@@ -113,11 +113,6 @@ image.onload = () => {
     }
   }
 
-  ctx.shadowBlur = 20;
-  ctx.shadowOffsetX = 0;
-  ctx.shadowOffsetY = 0;
-  ctx.drawImage(image, 500, 20, 200, 200);
-
   ctx.restore();
 };
 image.src = './img/cloud.png';
