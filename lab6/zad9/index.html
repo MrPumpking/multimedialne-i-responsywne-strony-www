@@ -9,6 +9,32 @@
     <script src="./script.js" defer></script>
   </head>
   <body>
-    <canvas class="js-canvas" width="500px" height="500px"></canvas>
+    <canvas class="js-canvas" width="600px" height="600px"></canvas>
+    <div class="controls">
+      <div class="control">
+        <label for="count">Ilość gwiazdek</label>
+        <input
+          id="count"
+          type="range"
+          min="1"
+          max="100"
+          step="1"
+          value="1"
+          class="js-count"
+        />
+      </div>
+      <div class="control">
+        <label for="speed">Prędkość gwiazdek</label>
+        <input
+          id="speed"
+          type="range"
+          min="1"
+          max="100"
+          step="1"
+          value="1"
+          class="js-speed"
+        />
+      </div>
+    </div>
   </body>
 </html>
