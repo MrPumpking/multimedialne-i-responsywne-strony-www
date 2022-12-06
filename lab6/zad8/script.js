@@ -11,7 +11,7 @@ let lastTime;
 const framerate = 1000 / 60;
 const ballSpeed = 10;
 
-let ballX = 0;
+let ballX = currentRadius + 1;
 
 const randomColor = () => {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
@@ -31,22 +31,12 @@ const drawCircle = (xPos, radius, color) => {
 };
 
 const updateBallState = () => {
-  if (ballX + currentRadius >= canvas.width) {
-    direction = -1;
+  if (ballX <= currentRadius || ballX + currentRadius >= canvas.width) {
+    direction = -direction;
     currentColor = randomColor();
   }
 
-  if (ballX - currentRadius <= 0) {
-    direction = 1;
-    currentColor = randomColor();
-  }
-
-  if (ballX > canvas.width / 2) {
-    growthFactor = -1;
-  } else {
-    growthFactor = 1;
-  }
-
+  growthFactor = ballX > canvas.width / 2 ? -1 : 1;
   ballX += direction * ballSpeed;
   currentRadius += growthFactor;
 };
