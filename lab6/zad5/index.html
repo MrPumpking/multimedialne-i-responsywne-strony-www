@@ -9,6 +9,20 @@
     <script src="./script.js" defer></script>
   </head>
   <body>
-    <canvas class="js-canvas"></canvas>
+    <div class="container">
+      <div>
+        <canvas class="js-canvas" width="800" height="450"></canvas>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label for="color">Wybierz kolor</label>
+          <input id="color" type="color" class="js-color" value="#ff0000" />
+        </div>
+        <button class="js-add-color">Dodaj kolor</button>
+        <button class="js-add-mask">Nałóż maskę</button>
+        <button class="js-cut">Wytnij fragment</button>
+        <button class="js-reset">Resetuj</button>
+      </div>
+    </div>
   </body>
 </html>
