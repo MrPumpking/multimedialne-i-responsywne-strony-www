@@ -14,6 +14,7 @@ body {
   display: flex;
   gap: 8px;
   max-width: 100%;
+  justify-content: flex-start;
 }
 
 .stamps {
@@ -28,7 +29,8 @@ body {
 }
 
 .stamp[data-active='true'] {
-  background-color: blue;
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgb(29, 78, 216);
 }
 
 .stamp svg {

@@ -5,6 +5,10 @@ const stamps = document.querySelectorAll('.js-stamp');
 const fillColorInput = document.querySelector('.js-fill');
 const strokeColorInput = document.querySelector('.js-stroke');
 
+const scale = 0.2;
+const offsetX = 200;
+const offsetY = 200;
+
 const getStampSVGPath = (stamp) => {
   const stampSvgPath = stamp.querySelector('svg > path');
   return stampSvgPath.getAttribute('d');
@@ -27,8 +31,8 @@ strokeColorInput.addEventListener('change', (event) => {
 const getMousePosition = (element, event) => {
   const rect = element.getBoundingClientRect();
   return {
-    x: event.clientX - rect.left,
-    y: event.clientY - rect.top,
+    x: ((event.clientX - rect.left) / (rect.right - rect.left)) * canvas.width,
+    y: ((event.clientY - rect.top) / (rect.bottom - rect.top)) * canvas.height,
   };
 };
 
@@ -47,25 +51,17 @@ stamps.forEach((stamp) => stamp.addEventListener('click', onStampClick));
 const onCanvasClick = (event) => {
   const { x, y } = getMousePosition(canvas, event);
 
-  ctx.save();
-  ctx.translate(x, y);
-
-  ctx.lineWidth = 5;
   ctx.fillStyle = currentFillColor;
   ctx.strokeStyle = currentStrokeColor;
+  ctx.lineWidth = 30;
 
-  const currentPath = new Path2D(currentStampPath);
-  const matrix = document
-    .createElementNS('http://www.w3.org/2000/svg', 'svg')
-    .createSVGMatrix();
-  const path = new Path2D();
-  const transform = matrix.scale(0.05);
-  path.addPath(currentPath, transform);
+  const path = new Path2D(currentStampPath);
 
-  ctx.scale(1.2, 1.2);
+  ctx.save();
+  ctx.scale(scale, scale);
+  ctx.translate(x / scale - offsetX, y / scale - offsetY);
   ctx.stroke(path);
   ctx.fill(path);
-
   ctx.restore();
 };
 
