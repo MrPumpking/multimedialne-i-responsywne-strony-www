@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.list {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 16px;
+  width: 200px;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 64px;
+}
+
+.list-element {
+  background-color: white;
+  padding: 10px;
+  cursor: move;
+}
+
+.list-element input[type='checkbox']:checked ~ span {
+  text-decoration: line-through;
+}
+
+.list-element.js-dragging {
+  opacity: 0.4;
+}
+
+.columns {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
