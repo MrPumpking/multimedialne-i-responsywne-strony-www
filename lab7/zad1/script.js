@@ -18,7 +18,7 @@ document.querySelectorAll('.drag-element').forEach((element) => {
   });
 
   element.addEventListener('drop', (event) => {
-    event.stopPropagation();
+    event.preventDefault();
     const dropTarget = event.currentTarget;
 
     if (dragSrcEl !== dropTarget) {
