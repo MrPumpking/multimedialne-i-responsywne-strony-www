@@ -38,13 +38,33 @@ const onContainerDrop = (event) => {
   const children = Array.from(
     dropTarget.querySelectorAll(`.${DRAGGABLE_CLASS_NAME}`)
   );
+  const isEmpty = !children.length;
 
-  if (children.length) {
+  if (!isEmpty) {
     return;
   }
 
-  document.querySelector(`#${draggedId}.${DRAGGABLE_CLASS_NAME}`).remove();
-  dropTarget.insertAdjacentHTML('beforeend', draggedElement);
+  const dropX = Number(dropTarget.dataset['x']);
+  const dropY = Number(dropTarget.dataset['y']);
+
+  const srcCell = document.querySelector(`#${draggedId}`).parentElement;
+  const srcX = Number(srcCell.dataset['x']);
+  const srcY = Number(srcCell.dataset['y']);
+
+  const validCoords = [
+    [dropX, dropY - 1],
+    [dropX + 1, dropY],
+    [dropX, dropY + 1],
+    [dropX - 1, dropY],
+  ];
+
+  for (const [x, y] of validCoords) {
+    if (srcX === x && srcY === y) {
+      document.querySelector(`#${draggedId}.${DRAGGABLE_CLASS_NAME}`).remove();
+      dropTarget.insertAdjacentHTML('beforeend', draggedElement);
+      break;
+    }
+  }
 };
 
 document.querySelectorAll('.cell').forEach((element) => {
